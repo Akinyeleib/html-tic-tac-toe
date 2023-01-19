@@ -1,11 +1,17 @@
-* {
-    padding: 0;
-    margin: 0;
-}
+
 
 body {
     width: 100vh;
     height: 100vh;
 }
 
+button {
+}
 
+.container {
+    margin: auto;
+    width: 100vh;
+    height: 60vh;
+    border: 3px solid brown;
+    display: grid;
+}
