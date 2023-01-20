@@ -14,11 +14,17 @@ button {
 .container {
     margin: auto 10%;
     /* width: 100vw; */
-    min-height: 30vh;
+    min-height: 50vh;
     /* height: 30vh; */
     border: 3px solid brown;
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+    background-color: antiquewhite;
+    color: brown;
+    font-size: 30px;
 }
 
