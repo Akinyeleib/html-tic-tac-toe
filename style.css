@@ -2,6 +2,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    display: grid;
 }
 
 button {
@@ -11,9 +12,13 @@ button {
 }
 
 .container {
-    margin: auto;
-    width: 50vw;
-    /* min-height: 60vh; */
+    margin: auto 10%;
+    /* width: 100vw; */
+    min-height: 30vh;
+    /* height: 30vh; */
     border: 3px solid brown;
     display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(3, 1fr);
 }
+
