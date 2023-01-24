@@ -1,5 +1,12 @@
 
-// GLobal Variables
+// Global Variables
+
+let isPlayerOneTurn = true;
+let buttons = document.querySelectorAll(".cell");
+let played = "";
+let text = ""
+let playCount = 0;
+let values = [];
 
 let winnings = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // horizontal
@@ -7,42 +14,45 @@ let winnings = [
     [0, 4, 8], [2, 4, 6] // diagonal
 ];
 
-let isPlayerOneTurn = true;
-
-let buttons = document.querySelectorAll(".cell");
-
-let played = "";
-let values = [];
-let text = ""
-let playCount = 0;
 
 
 for (var i = 0; i < buttons.length; i++) {
+
     buttons[i].innerHTML = "";
     buttons[i].addEventListener("click", (e) => {
-        if (e.target.innerHTML == "") {
-            playCount++;
-            played = isPlayerOneTurn ? "X" : "O";
-            values[Number(e.target.value)] = played;
-            e.target.innerHTML = played;
-            isPlayerOneTurn = !isPlayerOneTurn;
-            if (playCount > 4) {
-                checkWinner();
-            }
-            if (playCount == 9) 
-                loadValues();
+
+    if (e.target.innerHTML == "") {
+
+        playCount++;
+        played = isPlayerOneTurn ? "X" : "O";
+        values[Number(e.target.value)] = played;
+        e.target.innerHTML = played;
+        isPlayerOneTurn = !isPlayerOneTurn;
+        if (playCount > 4) {
+            checkWinner();
         }
+        if (playCount == 9) 
+            loadValues();
+
+    }
+
     });
+
 }
 
+
 function loadValues () {
+
     playCount = 0;
+    values = [];
+
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].innerHTML = "";
         buttons[i].style.backgroundColor = "antiquewhite";
     }
-    values = [];
+
 }
+
 
 function checkWinner() {
     
@@ -69,5 +79,7 @@ function checkWinner() {
             return true;
         }
     }
+
     return false;
+
 }
