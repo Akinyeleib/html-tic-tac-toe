@@ -37,6 +37,6 @@ for (var i = 0; i < buttons.length; i++) {
 function loadValues () {
     console.log('hello');
     for (var i = 0; i < buttons.length; i++) {
-        console.log(buttons[i].innerHTML);
+        buttons[i].innerHTML = "";
     }
 }
