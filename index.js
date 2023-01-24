@@ -4,7 +4,7 @@
 let winnings = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // horizontal
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // vertical
-    [0, 4, 8], [2, 4, 7] // diagonal
+    [0, 4, 8], [2, 4, 6] // diagonal
 ];
 
 let isPlayerOneTurn = true;
@@ -38,15 +38,17 @@ for (var i = 0; i < buttons.length; i++) {
 }
 
 function loadValues () {
+    playCount = 0;
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].innerHTML = "";
     }
+    values = [];
 }
 
 function checkWinner() {
     
-    for (post in winnings) {
-        
+    for (var i = 0; i < winnings.length; i++) {
+        post = winnings[i];
         console.log(post);
         var one = post[0];
         var two = post[1];
@@ -56,6 +58,7 @@ function checkWinner() {
                 && values[three] == played) {
                     console.log("Winner!");
                     loadValues();
+                    return true;
                 }
     }
     return false;
