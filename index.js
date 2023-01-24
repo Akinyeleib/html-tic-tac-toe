@@ -57,6 +57,9 @@ function checkWinner() {
                 && values[three] == played) {
                     console.log("Winner!");
                     loadValues();
+                    buttons[one].style.backgroundColor = "lightgreen";
+                    buttons[two].style.backgroundColor = "lightgreen";
+                    buttons[three].style.backgroundColor = "lightgreen";
                     return true;
         }
     }
