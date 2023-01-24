@@ -22,7 +22,7 @@ for (var i = 0; i < buttons.length; i++) {
             played = isPlayerOneTurn ? "X" : "O";
             e.target.innerHTML = played;
             isPlayerOneTurn = !isPlayerOneTurn;
-            
+            console.log(e.target.value);
         }
     });
 }
