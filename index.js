@@ -39,6 +39,7 @@ function loadValues () {
     playCount = 0;
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].innerHTML = "";
+        buttons[i].style.backgroundColor = "antiquewhite";
     }
     values = [];
 }
@@ -56,11 +57,16 @@ function checkWinner() {
             && values[two] == played 
                 && values[three] == played) {
                     console.log("Winner!");
-                    loadValues();
                     buttons[one].style.backgroundColor = "lightgreen";
                     buttons[two].style.backgroundColor = "lightgreen";
                     buttons[three].style.backgroundColor = "lightgreen";
-                    return true;
+            
+                    setTimeout(function() {
+                        
+                        loadValues();
+                    }, 2000);
+
+            return true;
         }
     }
     return false;
