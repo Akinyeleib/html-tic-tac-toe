@@ -26,8 +26,6 @@ for (var i = 0; i < buttons.length; i++) {
             values[Number(e.target.value)] = played;
             e.target.innerHTML = played;
             isPlayerOneTurn = !isPlayerOneTurn;
-            // console.log(values);
-            // console.log(e.target.value);
             if (playCount > 4) {
                 checkWinner();
             }
@@ -49,17 +47,18 @@ function checkWinner() {
     
     for (var i = 0; i < winnings.length; i++) {
         post = winnings[i];
-        console.log(post);
+
         var one = post[0];
         var two = post[1];
         var three = post[2];
+        
         if (values[one] == played 
             && values[two] == played 
                 && values[three] == played) {
                     console.log("Winner!");
                     loadValues();
                     return true;
-                }
+        }
     }
     return false;
 }
