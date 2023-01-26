@@ -74,10 +74,12 @@ function checkWinner() {
                     setTimeout(function() {
                         
                         loadValues();
-                    }, 2000);
+                    }, 1500);
 
             return true;
+        
         }
+
     }
 
     return false;
