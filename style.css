@@ -28,5 +28,6 @@ button {
     color: brown;
     font-size: 20px;
     border-radius: 30px;
+    border-bottom: 3px solid blue;
 }
 

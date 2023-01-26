@@ -33,8 +33,7 @@ for (var i = 0; i < buttons.length; i++) {
             if (playCount > 4) {
                 if (!checkWinner() && playCount == 9) 
                     loadValues();
-            } 
-            
+            }
 
         }
 
@@ -70,7 +69,7 @@ function checkWinner() {
             && values[two] == played 
                 && values[three] == played) {
                     gameWon = true;
-                    console.log("winner!");
+                    
                     buttons[one].style.backgroundColor = "lightgreen";
                     buttons[two].style.backgroundColor = "lightgreen";
                     buttons[three].style.backgroundColor = "lightgreen";
