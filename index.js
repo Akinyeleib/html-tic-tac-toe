@@ -31,9 +31,10 @@ for (var i = 0; i < buttons.length; i++) {
             e.target.innerHTML = played;
             isPlayerOneTurn = !isPlayerOneTurn;
             if (playCount > 4) {
-                checkWinner();
-            } else if (playCount == 9) 
-                loadValues();
+                if (!checkWinner() && playCount == 9) 
+                    loadValues();
+            } 
+            
 
         }
 
@@ -69,7 +70,7 @@ function checkWinner() {
             && values[two] == played 
                 && values[three] == played) {
                     gameWon = true;
-
+                    console.log("winner!");
                     buttons[one].style.backgroundColor = "lightgreen";
                     buttons[two].style.backgroundColor = "lightgreen";
                     buttons[three].style.backgroundColor = "lightgreen";
