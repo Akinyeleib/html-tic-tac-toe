@@ -1,10 +1,9 @@
 
 // Global Variables
 
-let isPlayerOneTurn = true;
+let isPlayerOneTurn = true, gameWon = false;
 let buttons = document.querySelectorAll(".cell");
-let played = "";
-let text = ""
+let played = "", text = ""
 let playCount = 0;
 let values = [];
 
@@ -21,20 +20,23 @@ for (var i = 0; i < buttons.length; i++) {
     buttons[i].innerHTML = "";
     buttons[i].addEventListener("click", (e) => {
 
-    if (e.target.innerHTML == "") {
+        if (gameWon)
+        return;
 
-        playCount++;
-        played = isPlayerOneTurn ? "X" : "O";
-        values[Number(e.target.value)] = played;
-        e.target.innerHTML = played;
-        isPlayerOneTurn = !isPlayerOneTurn;
-        if (playCount > 4) {
-            checkWinner();
+        if (e.target.innerHTML == "") {
+
+            playCount++;
+            played = isPlayerOneTurn ? "X" : "O";
+            values[Number(e.target.value)] = played;
+            e.target.innerHTML = played;
+            isPlayerOneTurn = !isPlayerOneTurn;
+            if (playCount > 4) {
+                checkWinner();
+            }
+            if (playCount == 9) 
+                loadValues();
+
         }
-        if (playCount == 9) 
-            loadValues();
-
-    }
 
     });
 
@@ -45,6 +47,7 @@ function loadValues () {
 
     playCount = 0;
     values = [];
+    gameWon = false;
 
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].innerHTML = "";
@@ -66,6 +69,7 @@ function checkWinner() {
         if (values[one] == played 
             && values[two] == played 
                 && values[three] == played) {
+                    gameWon = true;
                     console.log("Winner!");
                     buttons[one].style.backgroundColor = "lightgreen";
                     buttons[two].style.backgroundColor = "lightgreen";
